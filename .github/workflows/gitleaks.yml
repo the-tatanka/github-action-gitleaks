@@ -17,6 +17,7 @@ jobs:
         with:
           report_format: "sarif"
           fail: true
+          # config: "/.gitleaks/GitleaksUdmCombo.toml"
 
       - name: Get the output from the gitleaks step
         run: |
