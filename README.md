@@ -6,6 +6,13 @@ This GitHub Action provides a way to run [Gitleaks](https://github.com/zricethez
 
 > NOTE: v2 of this GitHub Action supports only the latest version of Gitleaks from v8 release.
 
+## Test creds
+
+    '''ghu_InstallationUserToServer000000000000''', 
+    '''ghs_InstallallationOrActionToken00000000''', 
+    '''ghp_PersonalAccessToken01245678900000000'''
+
+
 ## Inputs
 
 | Name          | Required | Type   | Default value                    | Description                                              |
