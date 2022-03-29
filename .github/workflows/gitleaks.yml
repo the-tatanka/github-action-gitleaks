@@ -27,11 +27,11 @@ jobs:
           echo "report: ${{ steps.gitleaks.outputs.report }}"
         if: always()
           
-      - name: Upload Semgrep output as artifact
+      - name: Upload Gitleaks output as artifact
         uses: actions/upload-artifact@v1
         with:
-          name: semgrep.sarif
-          path: semgrep.sarif
+          name: gitleaks.sarif
+          path: steps.gitleaks.outputs.report
         if: always()
 
       - name: Upload SARIF report
