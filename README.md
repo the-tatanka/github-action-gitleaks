@@ -108,3 +108,9 @@ Any feedback or contribution to this project is welcome.
 ## How do I remove a secret from git's history?
 
 [GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) has a great article on this using the [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
+
+## Gitleaks Docker
+
+```
+sudo docker run -v /home/tatanka/Documents/github-pages-jekyll-template:/path zricethezav/gitleaks:latest detect --source="/path" -r path/results.sarif -f sarif
+```
