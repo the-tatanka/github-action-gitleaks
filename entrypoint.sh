@@ -60,6 +60,8 @@ git config --global --add safe.directory /github/workspace
 
 command="gitleaks detect"
 if [ -f "${INPUT_CONFIG}" ]; then
+    git config --global --add safe.directory /github/workspace
+
     command=$(arg "${command}" '--config %s' "${INPUT_CONFIG}")
 fi
 
@@ -70,12 +72,20 @@ command=$(arg "${command}" '--log-level %s' "${INPUT_LOG_LEVEL}")
 command=$(arg "${command}" '--report-path %s' "${GITHUB_WORKSPACE}/gitleaks-report.${INPUT_REPORT_FORMAT}")
 
 if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+
+    git config --global --add safe.directory /github/workspace
+
     command=$(arg "${command}" '--source %s' "${GITHUB_WORKSPACE}")
     command=$(arg "${command}" '--log-opts "%s"' "--all ${GITHUB_HEAD_REF}...${GITHUB_BASE_REF}")
 else
+
+    git config --global --add safe.directory /github/workspace
+
     command=$(arg "${command}" '--source %s' "${INPUT_SOURCE}")
     command=$(arg "${command}" '--no-git' "${INPUT_NO_GIT}")
 fi
+
+git config --global --add safe.directory /github/workspace
 
 echo "Running gitleaks $(gitleaks version)"
 echo "----------------------------------"
